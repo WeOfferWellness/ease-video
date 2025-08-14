@@ -31,4 +31,10 @@
   .btn.primary{background:#1a73e8;color:#fff;border-color:#1a73e8}
   .join{display:flex;gap:8px}
   .join input{padding:10px 12px;border:1px solid #dadce0;border-radius:8px;min-width:280px}
+  .panel{max-width:420px;margin:48px auto;padding:24px;border:1px solid #e5e7eb;border-radius:16px}
+  .panel h2{margin:0 0 12px}
+  .menu{display:flex;flex-direction:column;gap:10px}
+  .item{display:block;width:100%;text-align:left;padding:12px 14px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;cursor:pointer}
+  .item.muted{color:#555;text-decoration:none}
+  .hint{margin-top:12px}
 </style>
