@@ -16,10 +16,27 @@ defmodule SimpleWrtcDemoWeb.Router do
   scope "/", SimpleWrtcDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # Home (landing)
+    get  "/",                PageController,    :index
+
+    # “New meeting” options page
+    get  "/new",             MeetingController, :new
+
+    # Actions from the options page
+    post "/meeting/create",  MeetingController, :create     # create a link for later
+    post "/meeting/instant", MeetingController, :instant    # start an instant meeting
+
+    # Join via code or pasted link from the home page
+    post "/join",            MeetingController, :join
+
+    # Lobby (pre-join self-view) and transition to call
+    get  "/m/:code",         MeetingController, :lobby
+    post "/m/:code/start",   MeetingController, :start
+
+    # Actual call UI (your existing WebRTC page moved here)
+    get  "/call/:code",      MeetingController, :call
   end
 
-  # Other scopes may use custom stacks.
   # scope "/api", SimpleWrtcDemoWeb do
   #   pipe_through :api
   # end

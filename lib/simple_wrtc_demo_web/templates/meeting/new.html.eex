@@ -1,0 +1,22 @@
+<section class="panel">
+  <h2>Choose an option</h2>
+  <div class="menu">
+    <form action="<%= Routes.meeting_path(@conn, :create) %>" method="post">
+      <button class="item" type="submit">🔗 Create a meeting for later</button>
+    </form>
+    <form action="<%= Routes.meeting_path(@conn, :instant) %>" method="post">
+      <button class="item" type="submit">➕ Start an instant meeting</button>
+    </form>
+    <a class="item muted" href="https://calendar.google.com/" target="_blank" rel="noopener">🗓 Schedule in your calendar</a>
+  </div>
+  <p class="hint"><a href="<%= Routes.page_path(@conn, :home) %>">Back</a></p>
+</section>
+
+<style>
+  .panel{max-width:420px;margin:48px auto;padding:24px;border:1px solid #e5e7eb;border-radius:16px}
+  .panel h2{margin:0 0 12px}
+  .menu{display:flex;flex-direction:column;gap:10px}
+  .item{display:block;width:100%;text-align:left;padding:12px 14px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;cursor:pointer}
+  .item.muted{color:#555;text-decoration:none}
+  .hint{margin-top:12px}
+</style>

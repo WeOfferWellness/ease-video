@@ -1,0 +1,21 @@
+<section class="created">
+  <h2>Meeting link ready</h2>
+  <div class="box">
+    <input id="meetLink" value="<%= SimpleWrtcDemoWeb.Endpoint.url() <> @link %>" readonly>
+    <button class="btn" onclick="copy()">Copy</button>
+  </div>
+  <p><a href="<%= @link %>">Open lobby</a> · <a href="<%= Routes.page_path(@conn, :home) %>">Home</a></p>
+</section>
+<script>
+  function copy() {
+    const i = document.getElementById('meetLink');
+    i.select(); i.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+  }
+</script>
+<style>
+  .created{max-width:640px;margin:48px auto;padding:0 12px}
+  .box{display:flex;gap:8px;margin:12px 0}
+  .box input{flex:1;padding:10px;border:1px solid #dadce0;border-radius:8px}
+  .btn{padding:10px 14px;border:1px solid #dadce0;border-radius:8px;background:#fff;cursor:pointer}
+</style>
